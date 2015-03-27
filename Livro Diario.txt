@@ -1,0 +1,6 @@
+Livro Diário - <Projeto Sem Nome>
+
+Dia 1 – 26 de março de 2015.
+Hoje o professor elucidou um pouco mais sobre os requisitos do trabalho em relação a aplicação das regras de disciplina.
+Eu ainda não sei sobre o que fazer. Acho que ainda não é tão problemático.
+Busquei alguns tutoriais de lua e me propus a começar a estudar.
