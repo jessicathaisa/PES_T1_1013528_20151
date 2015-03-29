@@ -9,3 +9,11 @@ Busquei alguns tutoriais de lua e me propus a começar a estudar.
 Dia 2 - 28 de março de 2015.
 Ainda não sei qual vai ser o tema do trabalho. Mantive os estudos obre lua fazendo programas básicos para aprendizado dos componentes básicos da linguagem.
 Meu namorado sugeriu que pensasse nos jogos clássicos para implementar. Pretendo buscar alguns para ver se tenho ideias novas.
+
+
+Dia 3 - 28 de março de 2015.
+Decidi fazer o jogo da cobrinha. E que usaria o gui Love2D de Lua para fazer uma interface gráfica.
+Demorei para entender como funcioanava a execução de Love, mas é trivial. Uma evz instalado, basta colocar o programa "main.lua" em uma pasta e executar $love <pasta>
+Fiz antes alguns exemplos para aprender a mexer com a biblioteca.
+Fiz um desenho da aplicação que quero desenvolver e iniciei os desenvolvimentos.
+Preciso para a próxima parte gerar as comidinhas da cobra e gerar uma parte do cabo a cada nova alimentação.
