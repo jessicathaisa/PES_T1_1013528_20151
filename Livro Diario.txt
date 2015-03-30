@@ -17,3 +17,6 @@ Demorei para entender como funcioanava a execução de Love, mas é trivial. Uma ev
 Fiz antes alguns exemplos para aprender a mexer com a biblioteca.
 Fiz um desenho da aplicação que quero desenvolver e iniciei os desenvolvimentos.
 Preciso para a próxima parte gerar as comidinhas da cobra e gerar uma parte do cabo a cada nova alimentação.
+
+Dia 4 - 30 de março de 2015.
+Fiz uma correção na forma de reconhecer as setas, de forma que se uma pessoa selecione a direção oposta em que vai a cobra nada aconteça.
