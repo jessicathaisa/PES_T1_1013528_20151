@@ -36,7 +36,12 @@ function love.load()
 	snake.velocity = 0.2
 	randomDirection = randomizeDirection()
 	table.insert(snake.boxes, newSnakeBox(0, 0, 0, randomDirection))
-	snake.numBoxes = snake.numBoxes + 1
+	table.insert(snake.boxes, newSnakeBox(0, 0, 1, randomDirection))
+	table.insert(snake.boxes, newSnakeBox(0, 0, 2, randomDirection))
+	table.insert(snake.boxes, newSnakeBox(0, 0, 3, randomDirection))
+	table.insert(snake.boxes, newSnakeBox(0, 0, 4, randomDirection))
+	table.insert(snake.boxes, newSnakeBox(0, 0, 5, randomDirection))
+	snake.numBoxes = snake.numBoxes + 6
 	
 	table.insert(positions, newPosition(snake.x, snake.y, randomDirection, snake.numBoxes))
 	
@@ -45,9 +50,11 @@ end
 
 function love.keypressed(key)
 	if key == "up" or key == "down" or key == "right" or key == "left" then
-		for directionCont = 1, 4 do
-			if key == directions[directionCont] then
-				table.insert(positions, newPosition(snake.x, snake.y, directionCont, snake.numBoxes))
+		if key ~= directionsOpost[snake.direction] then
+			for directionCont = 1, 4 do
+				if key == directions[directionCont] then
+					table.insert(positions, newPosition(snake.x, snake.y, directionCont, snake.numBoxes))
+				end
 			end
 		end
 	end
