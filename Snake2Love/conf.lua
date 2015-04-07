@@ -5,7 +5,7 @@ function love.conf(v)
 	v.author = "Jéssica Thaisa Almeida"
 	v.console = true
 	
-	v.window.width = 54 * 15
-	v.window.height = 54 * 11
+	v.window.width = 32 * 40
+	v.window.height = 32 * 20
 	v.window.fullscreen = false
 end
