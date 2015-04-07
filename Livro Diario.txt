@@ -24,3 +24,15 @@ Fiz uma correção na forma de reconhecer as setas, de forma que se uma pessoa sel
 Dia 5 - 06 de abril de 2015.
 Fiz funcionar a lógica das colisões. Precisei fazer uns rascunhos. Podem ser vistos na pasta rascunhos/ .
 Versionei o rascunho que fiz no "Dia 3" também. coloquei na mesma pasta.
+Coloquei um pause.
+
+Dia 6 - 07 de abril de 2015.
+Corrigi um problema no caminhar para cima e para esquerda.
+Coloquei um plano de fundo e uma textura no corpo da cobrinha.
+Pensei numa lógica para a geração da comida:
+	Criando um vetor com todas as posições possíveis (x,y).
+	Randomizo ele uma vez no início da partida.
+	Sempre caminho linearmente no vetor até achar uma posição livre.
+		Caso ache, coloco a comida na posição por um tempo randomico de "segundos".
+		Caso não ache, vai para a próxima posição.
+			Caso chegue no fim do vetor volto para o início.

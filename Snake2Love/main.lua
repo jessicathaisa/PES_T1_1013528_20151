@@ -26,7 +26,10 @@ local snake = {
 	velocity = 0
 }
 
-local mt = {}          -- create the matrix
+local wallpaperImage = love.graphics.newImage("wallpaper.jpg")
+local scaleImage = love.graphics.newImage("scale.png")
+
+local matrixOccupation = {}
 
 
 local positions = {}
@@ -34,13 +37,15 @@ local positions = {}
 -- Declaration of functions and callbacks
 
 function randomizeDirection ()
-	randomDirection = math.random(1,4)
-	return randomDirection
+	math.randomseed( os.time() )
+	math.random(1,4); math.random(1,4); math.random(1,4)
+	return  math.random(1,4)
 end
 
 function randomizeDuration ()
-	randomDuration = math.random(6,20)
-	return randomDuration
+	math.randomseed( os.time() )
+	math.random(20,40); math.random(20,40); math.random(20,40)
+	return math.random(20,40)
 end
 
 function love.load()
@@ -70,8 +75,8 @@ end
 function love.update(dt)
 	if move and not(pause) then
 		move = false
-		for i, currentBox in ipairs(snake.boxes) do
-			for j, currentPosition in ipairs(positions) do
+		for boxCount, currentBox in ipairs(snake.boxes) do
+			for posCount, currentPosition in ipairs(positions) do
 				if currentBox.x == currentPosition.x and currentBox.y == currentPosition.y then
 					currentBox.direction = currentPosition.posDirection
 					currentPosition.posDuration = currentPosition.posDuration - 1;
@@ -80,19 +85,20 @@ function love.update(dt)
 
 
 			if currentBox.startIn == 0 then
-				mt[currentBox.x/snake.size + 1][currentBox.y/snake.size + 1] = 0
+				matrixOccupation[currentBox.x/snake.size + 1][currentBox.y/snake.size + 1] = 0
 				currentBox = walkOneStep(currentBox)
+
 				-- if after walk the position is already 1, we have a colision
-				if mt[currentBox.x/snake.size + 1][currentBox.y/snake.size + 1] == 1 then
+				if matrixOccupation[currentBox.x/snake.size + 1][currentBox.y/snake.size + 1] == 1 then
 					colision = true;
 				else
-					mt[currentBox.x/snake.size + 1][currentBox.y/snake.size + 1] = 1
+					matrixOccupation[currentBox.x/snake.size + 1][currentBox.y/snake.size + 1] = 1
 				end
 			else
 				currentBox.startIn = currentBox.startIn - 1
 			end
 
-			if i == 1 then
+			if boxCount == 1 then
 				snake.x = currentBox.x
 				snake.y = currentBox.y
 				snake.direction = currentBox.direction
@@ -104,7 +110,7 @@ function love.update(dt)
 
 		positionsAux = {}
 
-		for i, currentPosition in ipairs(positions) do
+		for boxCount, currentPosition in ipairs(positions) do
 			if currentPosition.posDuration ~= 0 then
 				table.insert(positionsAux, currentPosition)
 			end
@@ -118,6 +124,9 @@ function love.draw()
 	if colision then
 		love.graphics.print( "Perdeu!", screen_width/3, screen_height/3, 0, 5, 5)
 	elseif not(pause) then
+		
+		love.graphics.draw(wallpaperImage, 0, 0)
+
 		execTime = os.clock()*1000 - timerStart
 		if execTime >= (1000 / snake.velocity) then
 			timerStart = os.clock() * 1000
@@ -133,8 +142,8 @@ function love.draw()
 
 		love.graphics.print("------ Time: " .. os.clock() .. " ------", 10, 10)
 
-		for i,box in ipairs(snake.boxes) do
-			love.graphics.rectangle("fill", box.x, box.y, snake.size, snake.size)
+		for boxCount, box in ipairs(snake.boxes) do
+			love.graphics.draw(scaleImage, box.x, box.y)
 		end
 	else
 		love.graphics.print( "Jogo Pausado!", screen_width/3, screen_height/3, 0, 5, 5)
@@ -148,6 +157,13 @@ function loadGame()
 	pause = false
 	execTime = 0.0
 
+	for boxCount in pairs (snake.boxes) do
+		snake.boxes[boxCount] = nil
+	end
+
+	for posCount in pairs (positions) do
+		positions[posCount] = nil
+	end
 
 	snake.x = screen_width / 2
 	snake.y = screen_height / 2
@@ -217,7 +233,7 @@ function walkOneStep(snakeBox)
 
 	if directions[snakeBox.direction] == "up" then
 		if snakeBox.y - step < 0 then
-			snakeBox.y = screen_height
+			snakeBox.y = screen_height - step
 		else
 			snakeBox.y = snakeBox.y - step
 		end
@@ -229,7 +245,7 @@ function walkOneStep(snakeBox)
 		end
 	elseif directions[snakeBox.direction] == "left" then
 		if snakeBox.x - step < 0 then
-			snakeBox.x = screen_width
+			snakeBox.x = screen_width - step
 		else
 			snakeBox.x = snakeBox.x - step
 		end
@@ -249,9 +265,9 @@ end
 
 function zeroMatrix()
 	for i=1,M+1 do
-		mt[i] = {}     -- create a new row
+		matrixOccupation[i] = {}     -- create a new row
 		for j=1,N+1 do
-        	mt[i][j] = 0
+        	matrixOccupation[i][j] = 0
     	end
 	end
 end
