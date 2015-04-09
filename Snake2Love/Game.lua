@@ -14,7 +14,6 @@ end
 
 function Game.keypressed(key)
 	if World.haveColision() and key == "return" then
-		print "entrei"
 		Game.StartNewGame()
 	end
 
@@ -32,7 +31,6 @@ end
 local cont = 0
 function Game.update()
 	if move and not(pause) then
-		print "movement allowed"
 		cont = cont + 1
 		move = false
 		if cont % 10 == 0 then
