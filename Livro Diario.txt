@@ -36,3 +36,7 @@ Pensei numa lógica para a geração da comida:
 		Caso ache, coloco a comida na posição por um tempo randomico de "segundos".
 		Caso não ache, vai para a próxima posição.
 			Caso chegue no fim do vetor volto para o início.
+
+
+Dia 7 - 08 de abril de 2015.
+Modularizei o código para facilitar a programação e o entendimento.

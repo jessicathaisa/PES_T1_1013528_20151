@@ -8,4 +8,5 @@ function love.conf(v)
 	v.window.width = 32 * 40
 	v.window.height = 32 * 20
 	v.window.fullscreen = false
+	io.stdout:setvbuf("no")
 end
