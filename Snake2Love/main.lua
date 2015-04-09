@@ -1,8 +1,15 @@
--- Declation of "global" variables
+-- Pontifícia Universidade Católica do Rio de Janeiro - PUC-Rio
+-- Princípios de Engenharia de Software - 2015.1
+-- Trabalho 1
+-- Jéssica Thaisa Silva de Almeida
+--
+-- Main.lua module
+
+
 Game = require "Game"
 
-local screen_width = 32 * 40
-local screen_height = 32 * 20
+local screen_width = 32 * Utils.getM()
+local screen_height = 32 * Utils.getN()
 
 local execTime = 0.0
 local timerStart = 0.0

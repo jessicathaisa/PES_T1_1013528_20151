@@ -1,3 +1,11 @@
+-- Pontifícia Universidade Católica do Rio de Janeiro - PUC-Rio
+-- Princípios de Engenharia de Software - 2015.1
+-- Trabalho 1
+-- Jéssica Thaisa Silva de Almeida
+--
+-- Snake.lua module
+
+
 local Snake = {}
 Utils = require "Utils"
 
@@ -5,8 +13,8 @@ Utils = require "Utils"
 local directions = { "left", "right", "up", "down" }
 local directionsOpost = { "right", "left", "down", "up" }
 
-local M = 40
-local N = 20
+local M = Utils.getM()
+local N = Utils.getN()
 
 local colision = false
 
@@ -114,30 +122,11 @@ function Snake.grow(directionMovement)
 	body.numMembers = body.numMembers + 1
 end
 
-function verifyColision()
-	head = body.members[1]
-
-	for contMember, member in ipairs(body.members) do
-		if contMember ~= 1 then
-			colision = head.x == member.x and head.y == member.y
-		else
-			colision = false
-		end
-	end
-end
-
 function Snake.haveColision()
 	return colision
 end
 
 function Snake.walk( matrixOccupation )
-	--print "##########################################################"
-	--for memCount, currentMemory in ipairs(moveMemories) do
-	--	print("<" .. memCount .. ">   X: " .. currentMemory.x .. "   Y: " .. currentMemory.y .. "   DIR: " .. currentMemory.posDirection)
-	--end
-	--print "##########################################################"
-
-	--print("Snake <> X:" .. body.x .. " Y:" .. body.y .. " - Direction: ".. body.direction)
 	for memberCount, currentMember in ipairs(body.members) do
 		for memCount, currentMemory in ipairs(moveMemories) do
 			if currentMember.x == currentMemory.x and currentMember.y == currentMemory.y then
@@ -146,15 +135,10 @@ function Snake.walk( matrixOccupation )
 			end
 		end
 
-		if currentMember.direction ~= nil then
-			--print("Member <" .. memberCount .. "> X:" .. currentMember.x .. " Y:" .. currentMember.y .. " - Direction: ".. currentMember.direction)
-		end
-
 		if currentMember.startIn == 0 then
 			matrixOccupation[currentMember.x/body.size + 1][currentMember.y/body.size + 1] = 0
 			currentMember = walkOneStep(currentMember)
 
-			-- if after walk the position is already 1, we have a colision
 			if matrixOccupation[currentMember.x/body.size + 1][currentMember.y/body.size + 1] == 1 then
 				colision = true;
 			else

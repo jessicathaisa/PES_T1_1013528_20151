@@ -1,3 +1,10 @@
+-- Pontifícia Universidade Católica do Rio de Janeiro - PUC-Rio
+-- Princípios de Engenharia de Software - 2015.1
+-- Trabalho 1
+-- Jéssica Thaisa Silva de Almeida
+--
+-- Game.lua module
+
 local Game = {}
 
 World = require "World"
@@ -5,7 +12,7 @@ World = require "World"
 local move = false
 local pause = false
 local execTime = 0.0
-local N = 20	M = 40
+N = Utils.getN()	M = Utils.getM()
 
 function Game.StartNewGame()
 	World.creation(N, M)

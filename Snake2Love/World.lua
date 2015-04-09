@@ -1,3 +1,10 @@
+-- Pontifícia Universidade Católica do Rio de Janeiro - PUC-Rio
+-- Princípios de Engenharia de Software - 2015.1
+-- Trabalho 1
+-- Jéssica Thaisa Silva de Almeida
+--
+-- World.lua module
+
 local World = {}
 
 Snake = require "Snake"

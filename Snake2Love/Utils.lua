@@ -1,4 +1,22 @@
+-- Pontifícia Universidade Católica do Rio de Janeiro - PUC-Rio
+-- Princípios de Engenharia de Software - 2015.1
+-- Trabalho 1
+-- Jéssica Thaisa Silva de Almeida
+--
+-- Utils.lua module
+
 local Utils = {}
+
+local N = 20
+local M = 40
+
+function Utils.getN()
+	return N
+end
+
+function Utils.getM()
+	return M
+end
 
 function Utils.randomize(start, final)
 	math.randomseed( os.time() )
