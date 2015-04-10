@@ -22,15 +22,13 @@ local food = {
 }
 local wallpaperImage = love.graphics.newImage("wallpaper.jpg")
 local scaleImage = love.graphics.newImage("scale.png")
+local pauseImage = love.graphics.newImage("telaPausou.png")
+local loseImage = love.graphics.newImage("telaPerdeu.png")
+local beginImage = love.graphics.newImage("telaInicial.png")
 
 
 function love.load()
-	Game.disallowMove()
-	execTime = 0.0
-	timerStart = os.clock() * 1000
 	Game.StartNewGame()
-
-	Game.allowMove()
 end
 
 function love.keypressed(key)
@@ -38,34 +36,30 @@ function love.keypressed(key)
 end
 
 function love.update(dt)
-	Game.update()
+	execTime = execTime + (dt * 1000)
+	if execTime - timerStart >= (1000 / Game.getVelocity()) then
+		timerStart = os.clock() * 1000
+		Game.allowMove()
+		Game.update()
+		Game.disallowMove()
+	end
 end
 
 function love.draw()
 	if Game.haveColision() then
-		love.graphics.print( "Perdeu!", screen_width/3, screen_height/3, 0, 5, 5)
+		love.graphics.draw(loseImage, 0, 0)
 	elseif not(Game.isPaused()) then
-		
-
 		love.graphics.draw(wallpaperImage, 0, 0)
 
-		execTime = os.clock()*1000 - timerStart
-		if execTime >= (1000 / Game.getVelocity()) then
-			timerStart = os.clock() * 1000
-			Game.allowMove()
-		else
-			Game.disallowMove()
-		end
-		
 		head = Game.getMembers()[1]
 		love.graphics.print("------ x:" .. (head.x/32) .. "   y:" .. (head.y/32) .. " ------", 100, 100)
 
-		love.graphics.print("------ Time: " .. "teste" .. " ------", 10, 10)
+		love.graphics.print("------ Time: " .. execTime/1000 .. " ------", 10, 10)
 
 		for boxCount, box in ipairs(Game.getMembers()) do
 			love.graphics.draw(scaleImage, box.x, box.y)
 		end
 	else
-		love.graphics.print( "Jogo Pausado!", screen_width/3, screen_height/3, 0, 5, 5)
+		love.graphics.draw(pauseImage, 0, 0)
 	end
 end

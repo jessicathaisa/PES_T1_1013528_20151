@@ -12,22 +12,34 @@ World = require "World"
 local move = false
 local pause = false
 local execTime = 0.0
+local timerStart = 0.0
+
 N = Utils.getN()	M = Utils.getM()
 
 function Game.StartNewGame()
+	move = false
+	pause = false
+	execTime = 0.0
+	timerStart = os.clock() * 1000
+
 	World.creation(N, M)
+
+	move = true
 end
 
+registering = false
 
 function Game.keypressed(key)
-	if World.haveColision() and key == "return" then
+	if World.haveColision() and (key == "return" or key == "kpenter" ) then
 		Game.StartNewGame()
 	end
 
-	if key == "up" or key == "down" or key == "right" or key == "left" then
+	if not(registering) and key == "up" or key == "down" or key == "right" or key == "left" then
+		registering = true;
 		if not(World.isOppositeDirection(key)) then
 			World.createAnimationToAnimals( key )
 		end
+		registering = false;
 	end
 
 	if key == " " then
