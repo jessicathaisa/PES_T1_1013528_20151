@@ -1,0 +1,418 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sc",
+				"scaleImage"
+			],
+			[
+				"wall",
+				"wallpaperImage"
+			],
+			[
+				"scr",
+				"screen_height"
+			],
+			[
+				"loa",
+				"loadGame"
+			],
+			[
+				"scre",
+				"screen_height"
+			],
+			[
+				"s",
+				"size"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Snake2Love/main.lua",
+			"settings":
+			{
+				"buffer_size": 1541,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Snake2Love/Game.lua",
+			"settings":
+			{
+				"buffer_size": 1577,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Snake2Love/World.lua",
+			"settings":
+			{
+				"buffer_size": 1635,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "asdasdasd",
+			"settings":
+			{
+				"buffer_size": 9,
+				"line_ending": "Windows",
+				"name": "asdasdasd"
+			}
+		},
+		{
+			"file": "Snake2Love/Snake.lua",
+			"settings":
+			{
+				"buffer_size": 4316,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Snake2Love/Utils.lua",
+			"settings":
+			{
+				"buffer_size": 505,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/Lua.sublime-build",
+	"command_palette":
+	{
+		"height": 81.0,
+		"selected_items":
+		[
+			[
+				"commen",
+				"Toggle Block Comment"
+			],
+			[
+				"comme",
+				"Toggle Block Comment"
+			],
+			[
+				"pcip",
+				"Package Control: Install Package"
+			],
+			[
+				"iden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"L",
+				"Set Syntax: Lua"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/PES_20151/PES_T1_1013528_20151/snake 2 love.sublime-project",
+		"/C/PES_20151/PES_T1_1013528_20151/Livro Diario.txt",
+		"/C/PES_20151/LOVE/tut4/main.lua",
+		"/C/PES_20151/LOVE/tut4/conf.lua",
+		"/C/PES_20151/LOVE/tut4/snake.lua",
+		"/C/Users/Jessica/AppData/Roaming/Sublime Text 2/Packages/User/Lua.sublime-build",
+		"/C/Users/Jessica/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/javaIdCE/logs/interceptadorDeLotes/20150406 - InterceptadorLotesCarteira.log",
+		"/C/javaIdCE/lotes/retorno/lote1.xml",
+		"/C/javaIdCE/lotes/envio/2.xml",
+		"/C/javaIdCE/lotes/envio/5.xml",
+		"/C/javaIdCE/lotes/envio/61.xml",
+		"/C/javaIdCE/lotes/envio/9.xml",
+		"/C/javaIdCE/lotes/envio/42.xml",
+		"/C/javaIdCE/lotes/envio/4.xml",
+		"/C/javaIdCE/lotes/retorno/lote2.xml",
+		"/C/javaIdCE/lotes/retorno/lote2",
+		"/C/javaIdCE/logs/interceptadorDeLotes/20150405 - InterceptadorLotesCarteira.error",
+		"/C/javaIdCE/logs/geradorDeLotes/20150406 - GeracaoLotesCarteira.error",
+		"/C/Users/Jessica/Desktop/42.xml",
+		"/C/Users/Jessica/Desktop/9.xml"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"loadGame",
+			"		loadGame()\n",
+			"mt",
+			"walkOneStep",
+			"mo",
+			"timerStart",
+			"java"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"matrixOccupation"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Snake2Love/main.lua",
+					"settings":
+					{
+						"buffer_size": 1541,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								967,
+								973
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Snake2Love/Game.lua",
+					"settings":
+					{
+						"buffer_size": 1577,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1059,
+								1037
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 648.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Snake2Love/World.lua",
+					"settings":
+					{
+						"buffer_size": 1635,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								729,
+								729
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"settings":
+					{
+						"buffer_size": 9,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9,
+								9
+							]
+						],
+						"settings":
+						{
+							"auto_name": "asdasdasd",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Snake2Love/Snake.lua",
+					"settings":
+					{
+						"buffer_size": 4316,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2616,
+								2616
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2106.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Snake2Love/Utils.lua",
+					"settings":
+					{
+						"buffer_size": 505,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								454,
+								454
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 246.0,
+	"status_bar_visible": true
+}
