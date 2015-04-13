@@ -8,34 +8,38 @@
 local World = {}
 
 Snake = require "Snake"
+Food = require "Food"
 
 local occupationMatrix = {}
 local occupationPosibility = {}
 
 local directions = {}
 
-function World.creation(lines, columns)
+local time = 0
+
+function World.load(lines, columns)
 
 	directions = Snake.getDirections()
 	occupationMatrix = {}
+	occupationPosibility = {}
 
-	for column = 1, columns + 1 do
+	for column = 1, columns do
 		occupationMatrix[column] = {}
-		for line = 1, lines + 1 do
+		for line = 1, lines do
 	    	occupationMatrix[column][line] = 0
 		end
 	end
 
-	for column = 1, columns + 1 do
-		for line = 1, lines + 1 do
-			position = { x = line , y = column }
+	for column = 1, columns do
+		for line = 1, lines do
+			position = { x = column , y = line }
         	table.insert(occupationPosibility, position)
     	end
 	end
 
 	shuffleOccupation(occupationPosibility);
 
-	Snake.born(0, 0, 5)
+	time = 0
 end
 
 function World.createAnimationToAnimals(key)
@@ -46,8 +50,8 @@ function World.createAnimationToAnimals(key)
 	end
 end
 
-function World.runTime()
-	Snake.walk( occupationMatrix )
+function World.update(dt)
+	time = time + dt
 end
 
 
@@ -79,6 +83,18 @@ end
 
 function World.getMembers()
 	return Snake.getMembers()
+end
+
+function World.getOccupationMatrix()
+	return occupationMatrix
+end
+
+function World.getOccupationPosibility()
+	return occupationPosibility
+end
+
+function World.getTimeInSeconds()
+	return time * 1000
 end
 
 return World

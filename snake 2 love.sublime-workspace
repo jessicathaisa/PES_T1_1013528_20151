@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"memo",
+				"moveMemories"
+			],
+			[
+				"matrixO",
+				"matrixOccupation"
+			],
+			[
+				"food",
+				"foodImage"
+			],
+			[
+				"occupation",
+				"occupationPosibility"
+			],
+			[
 				"sc",
 				"scaleImage"
 			],
@@ -35,7 +51,7 @@
 			"file": "Snake2Love/main.lua",
 			"settings":
 			{
-				"buffer_size": 1541,
+				"buffer_size": 1391,
 				"line_ending": "Windows"
 			}
 		},
@@ -43,32 +59,34 @@
 			"file": "Snake2Love/Game.lua",
 			"settings":
 			{
-				"buffer_size": 1577,
+				"buffer_size": 1854,
 				"line_ending": "Windows"
 			}
 		},
 		{
+			"contents": "-- Pontifícia Universidade Católica do Rio de Janeiro - PUC-Rio\n-- Princípios de Engenharia de Software - 2015.1\n-- Trabalho 1\n-- Jéssica Thaisa Silva de Almeida\n--\n-- World.lua module\n\nlocal World = {}\n\nSnake = require \"Snake\"\nFood = require \"Food\"\n\nlocal occupationMatrix = {}\nlocal occupationPosibility = {}\n\nlocal directions = {}\n\nlocal time = 0\n\nfunction World.load(lines, columns)\n\n	directions = Snake.getDirections()\n	occupationMatrix = {}\n	occupationPosibility = {}\n\n	for column = 1, columns do\n		occupationMatrix[column] = {}\n		for line = 1, lines do\n	    	occupationMatrix[column][line] = 0\n		end\n	end\n\n	for column = 1, columns do\n		for line = 1, lines do\n			position = { x = column , y = line }\n        	table.insert(occupationPosibility, position)\n    	end\n	end\n\n	shuffleOccupation(occupationPosibility);\n\n	time = 0\nend\n\nfunction World.createAnimationToAnimals(key)\n	for direction = 1, 4 do\n		if key == directions[direction] then\n			Snake.newMemory(Snake.getX(), Snake.getY(), direction)\n		end\n	end\nend\n\nfunction World.update(dt)\n	time = time + dt\nend\n\n\nfunction shuffleOccupation(table)\n	math.randomseed( os.time() )\n	local rand = math.random\n    local iterations = #table\n    local j\n    \n    for i = iterations, 2, -1 do\n        randomizedValue = rand(i)\n        table[i], table[randomizedValue] = table[randomizedValue], table[i]\n    end\nend\n\n\n\nfunction World.isOppositeDirection(direction)\n	return Snake.isOppositeDirection(direction)\nend\n\nfunction World.haveColision()\n	return Snake.haveColision()\nend\n\nfunction World.getVelocity()\n	return Snake.getVelocity()\nend\n\nfunction World.getMembers()\n	return Snake.getMembers()\nend\n\nfunction World.getOccupationMatrix()\n	return occupationMatrix\nend\n\nfunction World.getOccupationPosibility()\n	return occupationPosibility\nend\n\nfunction World.getTimeInSeconds()\n	return time * 1000\nend\n\nreturn World\n",
 			"file": "Snake2Love/World.lua",
+			"file_size": 2012,
+			"file_write_time": 130734203306205321,
 			"settings":
 			{
-				"buffer_size": 1635,
+				"buffer_size": 1857,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "asdasdasd",
-			"settings":
-			{
-				"buffer_size": 9,
-				"line_ending": "Windows",
-				"name": "asdasdasd"
 			}
 		},
 		{
 			"file": "Snake2Love/Snake.lua",
 			"settings":
 			{
-				"buffer_size": 4316,
+				"buffer_size": 5573,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Snake2Love/Food.lua",
+			"settings":
+			{
+				"buffer_size": 1749,
 				"line_ending": "Windows"
 			}
 		},
@@ -76,7 +94,7 @@
 			"file": "Snake2Love/Utils.lua",
 			"settings":
 			{
-				"buffer_size": 505,
+				"buffer_size": 576,
 				"line_ending": "Windows"
 			}
 		}
@@ -125,6 +143,7 @@
 	},
 	"file_history":
 	[
+		"/C/PES_20151/PES_T1_1013528_20151/Snake2Love/Food",
 		"/C/PES_20151/PES_T1_1013528_20151/snake 2 love.sublime-project",
 		"/C/PES_20151/PES_T1_1013528_20151/Livro Diario.txt",
 		"/C/PES_20151/LOVE/tut4/main.lua",
@@ -163,6 +182,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"print",
+			"velocity",
+			"/body.size",
+			"pointerOccupation",
+			"matr",
+			"registering",
+			"walk",
 			"loadGame",
 			"		loadGame()\n",
 			"mt",
@@ -196,15 +222,42 @@
 					"file": "Snake2Love/main.lua",
 					"settings":
 					{
-						"buffer_size": 1541,
+						"buffer_size": 1391,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								967,
-								973
+								762,
+								762
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 378.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Snake2Love/Game.lua",
+					"settings":
+					{
+						"buffer_size": 1854,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1043,
+								1043
 							]
 						],
 						"settings":
@@ -219,46 +272,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "Snake2Love/Game.lua",
-					"settings":
-					{
-						"buffer_size": 1577,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1059,
-								1037
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 648.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 2,
 					"file": "Snake2Love/World.lua",
 					"settings":
 					{
-						"buffer_size": 1635,
+						"buffer_size": 1857,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								729,
-								729
+								877,
+								877
 							]
 						],
 						"settings":
@@ -266,51 +292,25 @@
 							"syntax": "Packages/Lua/Lua.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 324.0,
+						"translation.y": 702.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"settings":
-					{
-						"buffer_size": 9,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9,
-								9
-							]
-						],
-						"settings":
-						{
-							"auto_name": "asdasdasd",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "Snake2Love/Snake.lua",
 					"settings":
 					{
-						"buffer_size": 4316,
+						"buffer_size": 5573,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2616,
-								2616
+								2978,
+								2978
 							]
 						],
 						"settings":
@@ -319,7 +319,33 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2106.0,
+						"translation.y": 2214.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Snake2Love/Food.lua",
+					"settings":
+					{
+						"buffer_size": 1749,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								905,
+								905
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 632.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -329,15 +355,15 @@
 					"file": "Snake2Love/Utils.lua",
 					"settings":
 					{
-						"buffer_size": 505,
+						"buffer_size": 576,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								454,
-								454
+								542,
+								542
 							]
 						],
 						"settings":

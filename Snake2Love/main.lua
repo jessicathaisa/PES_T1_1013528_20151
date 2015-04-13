@@ -20,11 +20,10 @@ local food = {
 	y = 0,
 	duration = 0
 }
-local wallpaperImage = love.graphics.newImage("wallpaper.jpg")
-local scaleImage = love.graphics.newImage("scale.png")
-local pauseImage = love.graphics.newImage("telaPausou.png")
-local loseImage = love.graphics.newImage("telaPerdeu.png")
-local beginImage = love.graphics.newImage("telaInicial.png")
+local wallpaperImage = love.graphics.newImage("images/wallpaper.jpg")
+local pauseImage = love.graphics.newImage("images/telaPausou.png")
+local loseImage = love.graphics.newImage("images/telaPerdeu.png")
+local beginImage = love.graphics.newImage("images/telaInicial.png")
 
 
 function love.load()
@@ -36,11 +35,9 @@ function love.keypressed(key)
 end
 
 function love.update(dt)
-	execTime = execTime + (dt * 1000)
-	if execTime - timerStart >= (1000 / Game.getVelocity()) then
-		timerStart = os.clock() * 1000
+	if not (Game.haveColision()) then
 		Game.allowMove()
-		Game.update()
+		Game.update(dt)
 		Game.disallowMove()
 	end
 end
@@ -52,13 +49,11 @@ function love.draw()
 		love.graphics.draw(wallpaperImage, 0, 0)
 
 		head = Game.getMembers()[1]
-		love.graphics.print("------ x:" .. (head.x/32) .. "   y:" .. (head.y/32) .. " ------", 100, 100)
+		love.graphics.print("------ x:" .. (head.x) .. "   y:" .. (head.y) .. " ------", 100, 100)
 
 		love.graphics.print("------ Time: " .. execTime/1000 .. " ------", 10, 10)
 
-		for boxCount, box in ipairs(Game.getMembers()) do
-			love.graphics.draw(scaleImage, box.x, box.y)
-		end
+		Game.draw()
 	else
 		love.graphics.draw(pauseImage, 0, 0)
 	end

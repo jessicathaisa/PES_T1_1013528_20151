@@ -9,6 +9,7 @@ local Utils = {}
 
 local N = 20
 local M = 40
+local gridSize = 32
 
 function Utils.getN()
 	return N
@@ -16,6 +17,10 @@ end
 
 function Utils.getM()
 	return M
+end
+
+function Utils.getGridSize()
+	return gridSize
 end
 
 function Utils.randomize(start, final)

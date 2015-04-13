@@ -22,41 +22,47 @@ function Game.StartNewGame()
 	execTime = 0.0
 	timerStart = os.clock() * 1000
 
-	World.creation(N, M)
+	World.load(N, M)
+	Snake.load(1, 1, 5)
+	Food.load()
 
 	move = true
 end
 
-registering = false
+function Game.update(dt)
+	if move and not(pause) then
+		matrixOccupation = World.getOccupationMatrix()
+		occupationPosibility = World.getOccupationPosibility()
+
+		World.update( dt )
+		Snake.update( dt , matrixOccupation)
+		Food.update( dt , matrixOccupation, occupationPosibility, Snake.haveAteFood())
+	end
+end
+
+function Game.draw()
+	Snake.draw()
+	Food.draw()
+end
+
+keyPressionSemaphore = false
 
 function Game.keypressed(key)
 	if World.haveColision() and (key == "return" or key == "kpenter" ) then
 		Game.StartNewGame()
 	end
 
-	if not(registering) and key == "up" or key == "down" or key == "right" or key == "left" then
-		registering = true;
+	if not(keyPressionSemaphore) and key == "up" or key == "down" or key == "right" or key == "left" then
+		-- CRITICAL REGION 
+		keyPressionSemaphore = true;
 		if not(World.isOppositeDirection(key)) then
 			World.createAnimationToAnimals( key )
 		end
-		registering = false;
+		keyPressionSemaphore = false;
 	end
 
 	if key == " " then
 		pause = not(pause)
-	end
-end
-
-local cont = 0
-function Game.update()
-	if move and not(pause) then
-		cont = cont + 1
-		move = false
-		if cont % 10 == 0 then
-			Snake.grow()
-		end
-
-		World.runTime()
 	end
 end
 
