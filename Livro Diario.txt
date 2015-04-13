@@ -40,3 +40,17 @@ Pensei numa lógica para a geração da comida:
 
 Dia 7 - 08 de abril de 2015.
 Modularizei o código para facilitar a programação e o entendimento.
+
+Dia 8 - 09 de abril de 2015.
+Melhorei ainda mais a modularização.
+Incluí headers nos arquivos.
+
+Dia 9 - 10 de abril de 2015.
+Criei novas imagens para o jogo: pause, perdeu, ganhou, novo jogo.
+Corrigi a lógica de contagem de tempo.
+Iniciei o diagrama de arquitetura.
+
+Dia 10 - 13 de abril de 2015
+Corrigi a contagem de tempo.
+Criei o módulo de comer comida.
+Corrigi a lógica de caminhar em curvas após comer.
