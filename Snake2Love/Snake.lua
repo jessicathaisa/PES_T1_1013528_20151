@@ -88,6 +88,7 @@ function Snake.update(dt, matrixOccupation)
 		elseif body.food > 5 then fee = 0.125 end
 
 		body.velocity = body.velocity + fee*body.velocity
+		body.food = body.food + 1
 	end
 
 	ateFood = false

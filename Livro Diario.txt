@@ -54,3 +54,7 @@ Dia 10 - 13 de abril de 2015
 Corrigi a contagem de tempo.
 Criei o módulo de comer comida.
 Corrigi a lógica de caminhar em curvas após comer.
+Definida a regra de taxa de aumento de velocidade.
+Falta desenvolver:
+	Placar para vitória: 600.
+	Aumentar pontuação com o tempo de sobrevivência (1 ponto a cada 10 segundos)
