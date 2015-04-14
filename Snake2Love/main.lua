@@ -26,11 +26,11 @@ local beginImage = love.graphics.newImage("images/telaInicial.png")
 
 
 function love.load()
-	Game.StartNewGame()
+	Game.load()
 end
 
 function love.keypressed(key)
-	Game.keypressed(key)
+	Game.controller(key)
 end
 
 function love.update(dt)
