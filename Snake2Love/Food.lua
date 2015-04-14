@@ -22,6 +22,11 @@ local food = {
 
 local foodImage = love.graphics.newImage("images/fruit.png")
 
+-- Inicializes all the necesary variables to a Food
+-- Parameters
+-- 
+-- Return
+--
 function Food.load()
 
 	execTime = 0

@@ -11,39 +11,40 @@ World = require "World"
 
 local move = false
 local pause = false
-local execTime = 0.0
-local timerStart = 0.0
-
-N = Utils.getN()	M = Utils.getM()
 
 function Game.StartNewGame()
 	move = false
 	pause = false
-	execTime = 0.0
-	timerStart = os.clock() * 1000
 
-	World.load(N, M)
-	Snake.load(1, 1, 5)
+	World.load()
+	Snake.load()
 	Food.load()
 
 	move = true
 end
 
+-- Starts the updates to each Element of the game
+-- Parameters
+-- 		dt: Time transcorred after last update
+-- Return
+--
 function Game.update(dt)
 	if move and not(pause) then
 		matrixOccupation = World.getOccupationMatrix()
 		occupationPosibility = World.getOccupationPosibility()
 
-		World.update( dt )
 		Snake.update( dt , matrixOccupation)
 		Food.update( dt , matrixOccupation, occupationPosibility, Snake.haveAteFood())
+		World.update( dt, Snake.haveAteFood())
 	end
 end
 
 function Game.draw()
+	World.draw()
 	Snake.draw()
 	Food.draw()
 end
+
 
 keyPressionSemaphore = false
 
@@ -56,7 +57,7 @@ function Game.keypressed(key)
 		-- CRITICAL REGION 
 		keyPressionSemaphore = true;
 		if not(World.isOppositeDirection(key)) then
-			World.createAnimationToAnimals( key )
+			World.keypressed( key )
 		end
 		keyPressionSemaphore = false;
 	end

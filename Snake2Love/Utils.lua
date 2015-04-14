@@ -7,16 +7,16 @@
 
 local Utils = {}
 
-local N = 20
-local M = 40
+local LINES_NUMBER = 20
+local COLUMNS_NUMBER = 40
 local gridSize = 32
 
-function Utils.getN()
-	return N
+function Utils.getHeight()
+	return LINES_NUMBER
 end
 
-function Utils.getM()
-	return M
+function Utils.getWidth()
+	return COLUMNS_NUMBER
 end
 
 function Utils.getGridSize()
@@ -31,6 +31,18 @@ function Utils.randomize(start, final)
 	math.random(start,final)
 
 	return math.random(start,final)
+end
+
+function Utils.round(num)
+    under = math.floor(num)
+    upper = math.floor(num) + 1
+    underV = -(under - num)
+    upperV = upper - num
+    if (upperV > underV) then
+        return under
+    else
+        return upper
+    end
 end
 
 return Utils

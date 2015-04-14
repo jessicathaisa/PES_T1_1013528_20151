@@ -13,11 +13,11 @@ Utils = require "Utils"
 local directions = { "left", "right", "up", "down" }
 local directionsOpost = { "right", "left", "down", "up" }
 
-local M = Utils.getM()
-local N = Utils.getN()
+local WIDTH = Utils.getWidth()
+local HEIGHT = Utils.getHeight()
 
-local execTime = 0
-local startTime = 0
+local endtime = 0
+local starttime = 0
 
 local colision = false
 local ateFood = false
@@ -29,14 +29,20 @@ local body = {
 	size = 32,
 	numMembers = 0,
 	direction = "",
-	velocity = 0
+	velocity = 0,
+	food = 0
 }
 
 local moveMemories = {}
 
 local scaleImage = love.graphics.newImage("images/scale.png")
 
-function Snake.load(startX, startY, startVelocity)
+-- Inicializes all the necesary variables to a Snake
+-- Parameters
+-- 
+-- Return
+--
+function Snake.load()
 	for memberCount in pairs (body.members) do
 		body.members[memberCount] = nil
 	end
@@ -44,15 +50,16 @@ function Snake.load(startX, startY, startVelocity)
 	colision = false
 	ateFood = false
 
-	body.x = startX
-	body.y = startY
+	body.x = Utils.randomize(1, 40)
+	body.y = Utils.randomize(1, 20)
 	body.members = { }
 	body.numMembers = 0
 	body.diretion = ""
-	body.velocity = startVelocity
+	body.velocity = 2
+	body.food = 0
 
-	execTime = 0
-	startTime = 0
+	endtime = 0
+	starttime = 0
 
 	randomDirection = Utils.randomize(1, 4)
 	Snake.grow(randomDirection)
@@ -62,21 +69,35 @@ function Snake.load(startX, startY, startVelocity)
 
 end
 
-
+-- Updates the velocity and the position of the snake
+-- Parameters
+-- 		dt:	time transcorred after last execution
+--		matrixOccupation: matrix of occupation of the screen
+-- Return
+--
 function Snake.update(dt, matrixOccupation)
 	if ateFood then
 		Snake.grow()
-		body.velocity = body.velocity + 1
+		fee = 0.15
+		if body.food > 40 then fee = 0.0001
+		elseif body.food > 35 then fee = 0.002
+		elseif body.food > 30 then fee = 0.007
+		elseif body.food > 25 then fee = 0.015
+		elseif body.food > 20 then fee = 0.030
+		elseif body.food > 10 then fee = 0.105
+		elseif body.food > 5 then fee = 0.125 end
+
+		body.velocity = body.velocity + fee*body.velocity
 	end
 
 	ateFood = false
 
-	execTime = execTime + dt
-	deltaT = execTime - startTime
+	endtime = endtime + dt
+	deltaT = endtime - starttime
 	if deltaT * body.velocity < 1 then
 		return
 	end
-	startTime = execTime
+	starttime = endtime
 	Snake.walk(matrixOccupation)
 end
 
@@ -220,24 +241,24 @@ function walkOneStep(snakeMember)
 	
 	if directions[snakeMember.direction] == "up" then
 		if snakeMember.y == 1 then
-			snakeMember.y = N
+			snakeMember.y = HEIGHT
 		else
 			snakeMember.y = snakeMember.y - 1
 		end
 	elseif directions[snakeMember.direction] == "down" then
-		if snakeMember.y == N then
+		if snakeMember.y == HEIGHT then
 			snakeMember.y = 1
 		else
 			snakeMember.y = snakeMember.y + 1
 		end
 	elseif directions[snakeMember.direction] == "left" then
 		if snakeMember.x == 1 then
-			snakeMember.x = M
+			snakeMember.x = WIDTH
 		else
 			snakeMember.x = snakeMember.x - 1
 		end
 	elseif directions[snakeMember.direction] == "right" then
-		if snakeMember.x == M then
+		if snakeMember.x == WIDTH then
 			snakeMember.x = 1
 		else
 			snakeMember.x = snakeMember.x + 1
