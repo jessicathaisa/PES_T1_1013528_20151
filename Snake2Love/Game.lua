@@ -12,7 +12,7 @@ World = require "World"
 local move = false
 local pause = false
 
-function Game.StartNewGame()
+function Game.load()
 	move = false
 	pause = false
 
@@ -48,16 +48,20 @@ end
 
 keyPressionSemaphore = false
 
-function Game.keypressed(key)
+function Game.controller(key)
 	if World.haveColision() and (key == "return" or key == "kpenter" ) then
-		Game.StartNewGame()
+		Game.load()
 	end
 
 	if not(keyPressionSemaphore) and key == "up" or key == "down" or key == "right" or key == "left" then
 		-- CRITICAL REGION 
 		keyPressionSemaphore = true;
 		if not(World.isOppositeDirection(key)) then
-			World.keypressed( key )
+				for direction = 1, 4 do
+					if key == directions[direction] then
+						Snake.newMemory(Snake.getX(), Snake.getY(), direction)
+					end
+				end
 		end
 		keyPressionSemaphore = false;
 	end

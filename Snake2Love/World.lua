@@ -56,19 +56,6 @@ function World.load()
 	starttime = os.time()
 end
 
--- Creates a new memory for the controlables classes, according to the direction typed
--- Parameters
--- 		key:	Direction [1..4]
--- Return
---
-function World.keypressed(key)
-	for direction = 1, 4 do
-		if key == directions[direction] then
-			Snake.newMemory(Snake.getX(), Snake.getY(), direction)
-		end
-	end
-end
-
 -- Updates the time and increase a food colision
 -- Parameters
 -- 		dt:	time transcorred after last execution
