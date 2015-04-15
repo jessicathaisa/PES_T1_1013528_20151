@@ -6,13 +6,11 @@
 -- Food.lua module
 
 local Food = {}
-
 local Utils = require "Utils"
 
-local execTime = 0
+local executionTime = 0
 local startTime = 0
 local indexOccupation
-local newFoodSemaphore = false
 
 local food = {
 	x = 0,
@@ -29,9 +27,8 @@ local foodImage = love.graphics.newImage("images/fruit.png")
 --
 function Food.load()
 
-	execTime = 0
+	executionTime = 0
 	startTime = 0
-	newFoodSemaphore = false
 	indexOccupation = 1
 
 	food = {
@@ -41,33 +38,29 @@ function Food.load()
 	}
 end
 
+-- Inicializes all the necesary variables to a Food
+-- Parameters
+-- 
+-- Return
+--
 function Food.update(dt, matrixOccupation, occupationPosibility, ateFood)
-	execTime = execTime + dt
-
-	deltaT = execTime - startTime
-	if deltaT < food.duration and not(ateFood) then
+	-- ASSERT<>
+	-- Is warranted that only will be created a new food if (the food was eaten) or (the time of the food finished)
+	-- <We count the time each second>
+	-- <We verify if the food was eaten>
+	-- It ensures our input assertive
+	executionTime = executionTime + dt
+	ellapsedTime = executionTime - startTime
+	if ellapsedTime < food.duration and not(ateFood) then
 		return
 	end
+	startTime = executionTime
 
-	startTime = execTime
-
-	Food.createNew(matrixOccupation, occupationPosibility)
-end
-
-function Food.draw()
-
-	if newFoodSemaphore then
-		return
-	end
-
-	love.graphics.draw(foodImage, (food.x - 1)* Utils.getGridSize(), (food.y - 1) * Utils.getGridSize())
-end
-
-function Food.createNew(matrixOccupation, occupationPosibility)
+	-- creation of new food
 	matrixOccupation[food.x][food.y] = 0
 	while true do
 		actualOccupation = occupationPosibility[indexOccupation]
-		if matrixOccupation[actualOccupation.x][actualOccupation.y] == 0 then -- position is empty, I can put the food here
+		if matrixOccupation[actualOccupation.x][actualOccupation.y] == 0 then
 			food.x = actualOccupation.x
 			food.y = actualOccupation.y
 			food.duration = Utils.randomize(20, 40)
@@ -85,5 +78,15 @@ function Food.createNew(matrixOccupation, occupationPosibility)
 		end
 	end
 end
+
+-- Draws in the screen the image of the food
+-- Parameters
+--
+-- Return
+--
+function Food.draw()
+	love.graphics.draw(foodImage, (food.x - 1)* Utils.getGridSize(), (food.y - 1) * Utils.getGridSize())
+end
+
 
 return Food

@@ -6,17 +6,13 @@
 -- World.lua module
 
 local World = {}
-
-Snake = require "Snake"
-Food = require "Food"
+local Utils = require "Utils"
 
 local occupationMatrix = {}
 local occupationPosibility = {}
 
-local directions = {}
-
 local time = 0
-local foodAte = 0
+local foodEaten = 0
 
 local WIDTH = Utils.getWidth()
 local HEIGHT = Utils.getHeight()
@@ -30,7 +26,6 @@ local wallpaperImage = love.graphics.newImage("images/wallpaper.jpg")
 --
 function World.load()
 
-	directions = Snake.getDirections()
 	occupationMatrix = {}
 	occupationPosibility = {}
 
@@ -48,25 +43,27 @@ function World.load()
     	end
 	end
 
-	shuffleOccupation(occupationPosibility);
+	Utils.shuffleTable(occupationPosibility);
 
 	time = 0
-	foodAte = 0
+	foodEaten = 0
 
 	starttime = os.time()
 end
 
--- Updates the time and increase a food colision
+-- Updates the time and increase a food eaten
 -- Parameters
 -- 		dt:	time transcorred after last execution
 --		ate: boolean (1) if there was a colision with food (0) otherwise
 -- Return
---
+--		Actual Score of the game
 function World.update(dt, ate)
 	time = time + dt
 	if ate then
-		foodAte = foodAte + 1
+		foodEaten = foodEaten + 1
 	end
+
+	return foodEaten * 10
 end
 
 -- Draws in the screen the time of game and the score
@@ -78,76 +75,35 @@ function World.draw()
 	love.graphics.draw(wallpaperImage, 0, 0)
 
 	endtime = os.time()
-	local elapsedtime = os.difftime(endtime,starttime)
+	local elapsedTime = os.difftime(endtime,starttime)
 
-	local hh, mm, ss = World.getFormatedTime(elapsedtime)
-	local hhs = ""	mms = ""	sss = ""
-	if hh < 10 then hhs = "0" end
-	if mm < 10 then mms = "0" end
-	if ss < 10 then sss = "0" end
-
-	love.graphics.setColor(0,0,0)
-	love.graphics.setFont( love.graphics.newFont( 16 ) )
-	love.graphics.print("Tempo de Jogo: " .. hhs .. hh .. ":" .. mms .. mm .. ":" .. sss .. ss .. "       Pontos: " .. foodAte * 10, 10, 10)
-	love.graphics.setColor(255,255,255)
-end
-
--- Shuffle the elements of a table
--- Parameters
---		table: table to be 'shuffled'
--- Return
---
-function shuffleOccupation(table)
-	math.randomseed( os.time() )
-	local rand = math.random
-    local iterations = #table
-    local j
-    
-    for i = iterations, 2, -1 do
-        randomizedValue = rand(i)
-        table[i], table[randomizedValue] = table[randomizedValue], table[i]
-    end
-end
-
-
-
-function World.isOppositeDirection(direction)
-	return Snake.isOppositeDirection(direction)
-end
-
-function World.haveColision()
-	return Snake.haveColision()
-end
-
-function World.getVelocity()
-	return Snake.getVelocity()
-end
-
-function World.getMembers()
-	return Snake.getMembers()
-end
-
-function World.getOccupationMatrix()
-	return occupationMatrix
-end
-
-function World.getOccupationPosibility()
-	return occupationPosibility
-end
-
-function World.getTimeInSeconds()
-	return time * 1000
-end
-
-function World.getFormatedTime(elapsedTime)
-	local ss = elapsedTime % 60
-	local mm = (elapsedTime / 60) % 60
-	local hh = (elapsedTime / 60) / 60
+	-- formats the Ellapsed Time
+	local ss = Utils.round(elapsedTime % 60)
+	local mm = Utils.round((elapsedTime / 60) % 60)
+	local hh = Utils.round((elapsedTime / 60) / 60)
 	if ss < 1 then ss = 0 end
 	if mm < 1 then mm = 0 end
 	if hh < 1 then hh = 0 end
+
+	-- zero in the left to formate
+	local hhzero = ""	mmzero = ""	sszero = ""
+	if hh < 10 then hhzero = "0" end
+	if mm < 10 then mmzero = "0" end
+	if ss < 10 then sszero = "0" end
 	
-	return Utils.round(hh), Utils.round(mm), Utils.round(ss)
+	love.graphics.setFont( love.graphics.newFont( 16 ) )
+	love.graphics.print("Tempo de Jogo: " .. hhzero .. hh .. ":" .. mmzero .. mm .. ":" .. sszero .. ss .. "       Pontos: " .. foodEaten * 10, 10, 10)
+	
+end
+
+
+-- Gets a informations about the occupation of the world
+-- Parameters
+--		
+-- Return
+--		The Occupation Matrix
+function World.getOccupation()
+	return occupationMatrix, occupationPosibility
 end
 
 
