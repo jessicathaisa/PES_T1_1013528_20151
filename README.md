@@ -6,7 +6,7 @@ Jéssica Thaisa Silva de Almeida
 # Snake2Love - Jogo da Cobrinha
 
 ## Introdução
-Este trabalho compreende a criação de um jogo em Lua, suas funcionalidades e a documentação de tomadas de decisão, livro diário, arquitetura e assertivas.
+Este trabalho compreende a criação de um jogo em Lua, com o framework LÖVE, suas funcionalidades e a documentação de tomadas de decisão, livro diário, arquitetura e assertivas.
 
 
 ## Arquivos
@@ -34,7 +34,7 @@ Este trabalho compreende a criação de um jogo em Lua, suas funcionalidades e a
 	- Utils.lua
 	- World.lua
 
-### Descrição
+### Descrição dos Arquivos
 
 | Arquivo           | Descrição  |
 | ------------------|----------- |
