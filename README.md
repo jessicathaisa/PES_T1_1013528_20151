@@ -1,7 +1,7 @@
 
-**PUC-Rio - Princípios de Engenharia de Software
-Trabalho 1 - 2015.1
-Jéssica Thaisa Silva de Almeida**
+**PUC-Rio - Princípios de Engenharia de Software**  
+**Trabalho 1 - 2015.1**  
+Jéssica Thaisa Silva de Almeida  
 
 # Snake2Love - Jogo da Cobrinha
 
@@ -13,6 +13,8 @@ Este trabalho compreende a criação de um jogo em Lua, suas funcionalidades e a
 
 - README.md
 - Livro Diário.txt
+- Diagrama de Arquitetura.docx
+- Diagrama de Arquitetura.pdf
 - rascunhos > Dia03_01.jpg
 - rascunhos > Dia05_01.jpg
 - Snake2Love
@@ -31,6 +33,33 @@ Este trabalho compreende a criação de um jogo em Lua, suas funcionalidades e a
 	- Snake.lua
 	- Utils.lua
 	- World.lua
+
+### Descrição
+
+| Arquivo           | Descrição  |
+| ------------------|----------- |
+| Diagrama de Arquitetura.docx | Diagrama de arquitetura do programa em formato WORD 2007+. |
+| Diagrama de Arquitetura.pdf | Diagrama de arquitetura do programa em formato PDF. |
+| Livro Diário.txt  | O livro diário contém as decisões e pensamentos do dia a dia do projeto.|
+| 					| 			 |
+| Dia03_01.jpg		| Rascunhos do dia 03. |
+| Dia05_01.jpg		| Rascunhos do dia 05. |
+| 					| 			 |
+| fruit.png         | Imagem de fruta que aparece como comida para a cobrinha. |
+| scale.png			| Textura de escama para a cobrinha. |
+| telaGanhou.png	| Tela que aparece quando o jogador ganha o jogo. |
+| telaInicial.png	| Tela que aparece quando o jogador inicia o jogo. |
+| telaPausou.png	| Tela que aparece quando o jogador pausa o jogo. |
+| telaPerdeu.png	| Tela que aparece quando o jogador perde o jogo. |
+| wallpaper.jpg		| Imagem de fundo do jogo. |
+| 					| 			 |
+| conf.lua			| Arquivo de configuração do jogo. |
+| Food.lua			| Arquivo com as funções referentes à comida da cobrinha. |
+| Game.lua			| Arquivo com as funções referentes às chamadas básicas do jogo. |
+| main.lua			| Arquivo principal com os callbacks do LÖVE. |
+| Snake.lua			| Arquivo com as funções referentes à cobrinha. |
+| Utils.lua			| Arquivo com as funções transversais mais gerais e pouco ligadas ao contexto. |
+| World.lua			| Arquivo com as funções referentes ao mundo em que está localizada a cobrinha. |
 
 
 ## Requisitos do Jogo
