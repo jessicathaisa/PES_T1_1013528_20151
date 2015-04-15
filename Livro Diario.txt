@@ -1,4 +1,4 @@
-Livro Diário - <Projeto Sem Nome>
+Livro Diário - Snake2Love
 
 Dia 1 – 26 de março de 2015.
 Hoje o professor elucidou um pouco mais sobre os requisitos do trabalho em relação a aplicação das regras de disciplina.
@@ -50,7 +50,7 @@ Criei novas imagens para o jogo: pause, perdeu, ganhou, novo jogo.
 Corrigi a lógica de contagem de tempo.
 Iniciei o diagrama de arquitetura.
 
-Dia 10 - 13 de abril de 2015
+Dia 10 - 13 de abril de 2015.
 Corrigi a contagem de tempo.
 Criei o módulo de comer comida.
 Corrigi a lógica de caminhar em curvas após comer.
@@ -58,3 +58,6 @@ Definida a regra de taxa de aumento de velocidade.
 Falta desenvolver:
 	Placar para vitória: 600.
 	Aumentar pontuação com o tempo de sobrevivência (1 ponto a cada 10 segundos)
+
+Dia 11 - 14 de abril de 2015.
+Melhoria de modularização do código. Início do desenho da arquitetura.
