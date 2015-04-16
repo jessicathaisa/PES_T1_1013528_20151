@@ -12,12 +12,15 @@ local World = require "World"
 local Snake = require "Snake"
 local Food = require "Food"
 
+local SCORETOWIN = 1000
+
 local gameMoving
 local gamePause
 local snakeActualDirection
 local snakeColision
 local snakeAteFood
 local gameScore
+local wonGame
 
 
 local directions = { "left", "right", "up", "down" }
@@ -25,15 +28,22 @@ local directionsOpost = { "right", "left", "down", "up" }
 
 
 local pauseImage = love.graphics.newImage("images/telaPausou.png")
+local wonImage = love.graphics.newImage("images/telaGanhou.png")
 local loseImage = love.graphics.newImage("images/telaPerdeu.png")
 local beginImage = love.graphics.newImage("images/telaInicial.png")
 
+-- Inicializes all the necesary variables to a Game
+-- Parameters
+-- 
+-- Return
+--
 function Game.load()
 	gameMoving = false
 	gamePause = false
 	snakeActualDirection = false
 	snakeColision = false
 	snakeAteFood = false
+	wonGame = false
 	gameScore = 0
 
 	World.load()
@@ -50,10 +60,11 @@ end
 --
 function Game.update(dt)
 	--ASSERT<>
-	-- Is necesary to ensure that we only update if doesn't have a colision and the game is not paused
+	-- Is necesary to ensure that we only update if doesn't have a colision, the player
+	--		doens't won the game and the game is not paused
 	-- <We test the snake colision>
 	-- It ensures our input assertive
-	if not (snakeColision) then
+	if not (snakeColision) and not (wonGame) then
 		gameMoving = true
 		if gameMoving and not(gamePause) then
 			matrixOccupation, occupationPosibility = World.getOccupation()
@@ -61,6 +72,10 @@ function Game.update(dt)
 			snakeActualDirection, snakeColision, snakeAteFood = Snake.update( dt , matrixOccupation)
 			Food.update( dt , matrixOccupation, occupationPosibility, snakeAteFood)
 			gameScore = World.update( dt, snakeAteFood)
+
+			if gameScore == SCORETOWIN then
+				wonGame = true
+			end
 		end
 		gameMoving = false
 	end
@@ -72,7 +87,9 @@ end
 -- Return
 --
 function Game.draw()
-	if snakeColision then
+	if wonGame then
+		love.graphics.draw(wonImage, 0, 0)
+	elseif snakeColision then
 		love.graphics.draw(loseImage, 0, 0)
 
 		love.graphics.setColor(170,170,100)
@@ -95,7 +112,7 @@ end
 -- Return
 --
 function Game.controller(key)
-	if snakeColision and (key == "return" or key == "kpenter" ) then
+	if (snakeColision or wonGame) and (key == "return" or key == "kpenter" ) then
 		Game.load()
 	end
 	if key == "up" or key == "down" or key == "right" or key == "left" then
