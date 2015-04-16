@@ -20,7 +20,7 @@ local food = {
 
 local foodImage = love.graphics.newImage("images/fruit.png")
 
--- Inicializes all the necesary variables to a Food
+-- Inicializes all the necessary variables to a Food
 -- Parameters
 -- 
 -- Return

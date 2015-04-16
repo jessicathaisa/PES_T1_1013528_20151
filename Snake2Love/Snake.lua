@@ -38,7 +38,7 @@ local body = {
 local moveMemories = {}
 
 
--- Inicializes all the necesary variables to a Snake
+-- Inicializes all the necessary variables to a Snake
 -- Parameters
 -- 
 -- Return

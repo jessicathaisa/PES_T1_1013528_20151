@@ -19,7 +19,7 @@ local HEIGHT = Utils.getHeight()
 
 local wallpaperImage = love.graphics.newImage("images/wallpaper.jpg")
 
--- Inicializes all the necesary variables to a World
+-- Inicializes all the necessary variables to a World
 -- Parameters
 -- 
 -- Return
@@ -90,7 +90,7 @@ function World.draw()
 	if hh < 10 then hhzero = "0" end
 	if mm < 10 then mmzero = "0" end
 	if ss < 10 then sszero = "0" end
-	
+
 	love.graphics.setFont( love.graphics.newFont( 16 ) )
 	love.graphics.print("Tempo de Jogo: " .. hhzero .. hh .. ":" .. mmzero .. mm .. ":" .. sszero .. ss .. "       Pontos: " .. foodEaten * 10, 10, 10)
 	
