@@ -1,5 +1,7 @@
 Livro Diário - Snake2Love
 
+-- Rascunhos disponíveis na pasta <rascunhos>. Os dias com rascunhos disponíveis possuem a marcação <R> ao lado do título.
+
 Dia 1 – 26 de março de 2015.
 Hoje o professor elucidou um pouco mais sobre os requisitos do trabalho em relação a aplicação das regras de disciplina.
 Eu ainda não sei sobre o que fazer. Acho que ainda não é tão problemático.
@@ -11,7 +13,7 @@ Ainda não sei qual vai ser o tema do trabalho. Mantive os estudos obre lua fazen
 Meu namorado sugeriu que pensasse nos jogos clássicos para implementar. Pretendo buscar alguns para ver se tenho ideias novas.
 
 
-Dia 3 - 28 de março de 2015.
+Dia 3 - 28 de março de 2015. <R>
 Decidi fazer o jogo da cobrinha. E que usaria o gui Love2D de Lua para fazer uma interface gráfica.
 Demorei para entender como funcioanava a execução de Love, mas é trivial. Uma vez instalado, basta colocar o programa "main.lua" em uma pasta e executar $love <pasta>
 Fiz antes alguns exemplos para aprender a mexer com a biblioteca.
@@ -21,12 +23,12 @@ Preciso para a próxima parte gerar as comidinhas da cobra e gerar uma parte do c
 Dia 4 - 30 de março de 2015.
 Fiz uma correção na forma de reconhecer as setas, de forma que se uma pessoa selecione a direção oposta em que vai a cobra nada aconteça.
 
-Dia 5 - 06 de abril de 2015.
+Dia 5 - 06 de abril de 2015. <R>
 Fiz funcionar a lógica das colisões. Precisei fazer uns rascunhos. Podem ser vistos na pasta rascunhos/ .
 Versionei o rascunho que fiz no "Dia 3" também. coloquei na mesma pasta.
 Coloquei um pause.
 
-Dia 6 - 07 de abril de 2015.
+Dia 6 - 07 de abril de 2015. <R>
 Corrigi um problema no caminhar para cima e para esquerda.
 Coloquei um plano de fundo e uma textura no corpo da cobrinha.
 Pensei numa lógica para a geração da comida:
@@ -45,7 +47,7 @@ Dia 8 - 09 de abril de 2015.
 Melhorei ainda mais a modularização.
 Incluí headers nos arquivos.
 
-Dia 9 - 10 de abril de 2015.
+Dia 9 - 10 de abril de 2015. <R>
 Criei novas imagens para o jogo: pause, perdeu, ganhou, novo jogo.
 Corrigi a lógica de contagem de tempo.
 Iniciei o diagrama de arquitetura.
@@ -59,5 +61,15 @@ Falta desenvolver:
 	Placar para vitória: 600.
 	Aumentar pontuação com o tempo de sobrevivência (1 ponto a cada 10 segundos)
 
-Dia 11 - 14 de abril de 2015.
-Melhoria de modularização do código. Início do desenho da arquitetura.
+Dia 11 - 14 de abril de 2015. <R>
+Melhoria de modularização do código.
+Tirei dúvidas quanto a arquitetura com o professor. Assim devo desenhar uma arquitetura que demonstre todos os fluxos do meu código.
+Início do desenho da arquitetura.
+Mudei a velocidade inicial e a função de crescimento da velocidade.
+
+Dia 12 - 15 de abril de 2015. <R>
+Desenho da arquitetura finalizado e revisto.
+Melhorias no código e limpeza de funções mortas/zumbis.
+Modificação da função de aumento da velocidade para ficar menos insano.
+Pedi a alguns amigos para que jogassem e pelos seus resultados mudei o placar de vitória para 1000.
+Criei a lógica de permitir ao jogador ganhar.
