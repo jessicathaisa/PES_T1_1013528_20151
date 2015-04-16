@@ -32,7 +32,7 @@ local wonImage = love.graphics.newImage("images/telaGanhou.png")
 local loseImage = love.graphics.newImage("images/telaPerdeu.png")
 local beginImage = love.graphics.newImage("images/telaInicial.png")
 
--- Inicializes all the necesary variables to a Game
+-- Inicializes all the necessary variables to a Game
 -- Parameters
 -- 
 -- Return
