@@ -216,7 +216,12 @@ end
 -- Return
 --
 function Snake.walk( matrixOccupation )
-
+	-- ASSERT<>
+	-- A member rently created just can walk before all the other members of the body walked over him
+	-- < We see if the member can walk (currentMember.startIn).
+	--			If yes he walks,
+	--			Otherwise we decrement the numberOfMembers to wait until start to walk.>
+	-- It ensures our input assertive
 	for memberCount, currentMember in ipairs(body.members) do
 		
 		Snake.reviseMemory(currentMember)

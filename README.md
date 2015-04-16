@@ -5,6 +5,7 @@ Jéssica Thaisa Silva de Almeida
 
 # Snake2Love - Jogo da Cobrinha
 
+
 ## Introdução
 Este trabalho compreende a criação de um jogo em Lua, com o framework LÖVE, suas funcionalidades e a documentação de tomadas de decisão, livro diário, arquitetura e assertivas.
 
@@ -33,6 +34,7 @@ Este trabalho compreende a criação de um jogo em Lua, com o framework LÖVE, s
 	- Snake.lua
 	- Utils.lua
 	- World.lua
+
 
 ### Descrição dos Arquivos
 
@@ -74,11 +76,21 @@ Este trabalho compreende a criação de um jogo em Lua, com o framework LÖVE, s
     pontuação cresce  pontos e o tamanho da cobra cresce uma unidade.
  5. A cada comida que come, a cobra aumenta de velocidade.
  6. Caso a cabeça da cobra encontre uma parte de seu corpo é
-    caracterizada uma colisão. Isso faz o jogador perder a partida.
- 7. Se o jogador alcançar 1000 pontos vence a partida.
+    caracterizada uma colisão. Isso faz o jogador perder a partida. Para voltar a jogar basta pressionar [enter].
+ 7. Se o jogador alcançar 1000 pontos vence a partida. Para voltar a jogar basta pressionar [enter].
  8. Se o jogador pressionar a tecla [espaço] a qualquer momento do jogo, o jogo é pausado. Caso deseje voltar a jogar basta selecionar [espaço] novamente.
+ 9. Caso o jogador pressione a tecla [escape] o jogo é fechado.
 
+
+## Como executar?
+
+ 1. Tenha certeza de ter o Lua instalado em sua máquina ( http://www.lua.org/ ).
+ 2. Tenha certeza de ter o LÖVE2d instalado em sua máquina ( https://love2d.org ).
+ 3. No terminal vá até a pasta em que está o jogo.
+ 4. Execute $ love Snake2Love
+ 5. Abrir-se-a o jogo para ser jogado.
   
+
 ## Diagrama de Arquitetura
 
 O diagrama de arquitetura representa a hierarquia de chamadas de função do programa.

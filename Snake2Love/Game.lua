@@ -116,6 +116,11 @@ function Game.controller(key)
 		Game.load()
 	end
 	if key == "up" or key == "down" or key == "right" or key == "left" then
+		--ASSERT<>
+		-- Is necesary to ensure that we only recognize the command to turn if the player
+		--		doesn't press the key for the oppost direction
+		-- <We test if the direction is the oppost one>
+		-- It ensures our input assertive
 		if key ~= directionsOpost[snakeActualDirection] then
 			for direction = 1, 4 do
 				if key == directions[direction] then

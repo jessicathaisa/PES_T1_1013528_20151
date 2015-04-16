@@ -73,3 +73,8 @@ Melhorias no código e limpeza de funções mortas/zumbis.
 Modificação da função de aumento da velocidade para ficar menos insano.
 Pedi a alguns amigos para que jogassem e pelos seus resultados mudei o placar de vitória para 1000.
 Criei a lógica de permitir ao jogador ganhar.
+Relembrando assertivas necessárias:
+	* Só pode criar uma nova caixinha na cobra se todo o resto do corpo já tiver passado por aquela posição. <REFERÊNCIA: RASCUNHO DIA 03>
+	* A cobra só anda se não houve colisão nem ganhou o jogo. <REFERÊNCIA: RASCUNHO DIA 03>
+	* Ignorar se o jogador pressionar uma tecla no sentido oposto ao atual, exemplo: está indo para direita e o jogador pressiona a tecla para a esquerda. <REFERÊNCIA: DIA 04>
+	* Só se cria uma nova comida se a cobra comer a antiga ou se expirar o tempo de duração da cobra. <REFERÊNCIA: DIA 06>
